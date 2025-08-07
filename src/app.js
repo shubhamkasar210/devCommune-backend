@@ -6,6 +6,10 @@ const { adminAuth, userAuth } = require("./middlewares/auth");
 
 app.use("/admin", adminAuth);
 
+app.post("/user/login", (req, res) => {
+  res.send("User logged in successfully");
+});
+
 app.get("/user", userAuth, (req, res) => {
   res.send("User Data Sent");
 });
