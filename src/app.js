@@ -3,13 +3,17 @@ const express = require("express");
 const app = express();
 
 app.get("/getUserData", (req, res) => {
-  // Logic of DB call and get user data
-  throw new Error("vbvbvnb");
-  res.send("User data sent");
+  try {
+    // Logic of DB call and get user data
+    throw new Error("vbvbvnb");
+    res.send("User data sent");
+  } catch (error) {
+    res.status(500).send("some error contact support team");
+  }
 });
 
 app.use("/", (err, req, res, next) => {
-  if(err) {
+  if (err) {
     // log your error
     res.status(500).send("something went wrong");
   }
